@@ -15,7 +15,7 @@
 	while ($comment_row = mysqli_fetch_array($comment_query)) {
 		$comment_by = $comment_row['firstname'] . " " .  $comment_row['lastname'];
 	?>
-		<div class="t" style="background-color: #e9e9e9; padding: 15px; border-radius: 15px; margin-bottom: 10px;">
+		<div class="t" style="background-color: #e9e9e9; padding: 10px 15px; border-radius: 15px; margin-bottom: 10px;">
 			<strong><?php echo $comment_by; ?>
 				-
 				<?php

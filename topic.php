@@ -63,18 +63,7 @@
         </div>
     </nav>
     <div class="container " style="margin-top: 100px; width: 1000px;">
-        <div style="display: flex; justify-content: space-between;">
-            <?php
-            if (isset($_SESSION['id'])) { ?>
-                <a href="./logout.php" style="">
-                    <button type="button" class="btn btn-secondary">
-                        <?php echo $member_row['firstname'] . " " . $member_row['lastname']; ?> - Log Out
-                    </button>
-                </a>
-
-            <?php
-            }
-            ?>
+        <div style="display: flex; justify-content: space-between;" class="mb-4">
             <div>
                 <button type="button" class="btn btn-success px-4">
                     User Post: <?php echo $countpost_user; ?>
@@ -89,26 +78,43 @@
                     Comment All: <?php echo $countcomment; ?>
                 </button>
             </div>
+            <?php
+            if (isset($_SESSION['id'])) { ?>
+                <a href="./logout.php" style="">
+                    <button type="button" class="btn btn-secondary">
+                        <?php echo $member_row['firstname'] . " " . $member_row['lastname']; ?> - Log Out
+                    </button>
+                </a>
+
+            <?php
+            }
+            ?>
         </div>
 
-        <section class="container p-4 bg-white rounded-4 mb-3 mt-4" style="background-color: #d9d9d9;">
-            <div>
-                <img src="./styles/image/avatar.jpg" class="rounded-circle" alt="User Profile Picture" style="width: 50px;">
-                <div class="">
-                    <strong>
-                    </strong>
+        <?php
+        if (isset($_SESSION['id'])) {
+        ?>
+            <section class="container p-4 bg-white rounded-4 mb-3 " style="background-color: #d9d9d9;">
+                <div>
+                    <img src="./styles/image/avatar.jpg" class="rounded-circle" alt="User Profile Picture" style="width: 50px;">
+                    <div class="">
+                        <strong>
+                        </strong>
 
+                    </div>
                 </div>
-            </div>
-            <form method="post">
-                <label for="inputEmail4" class="form-label mt-4">Content:</label>
-                <div class="form-floating ">
-                    <textarea name="post_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                    <label for="floatingTextarea">Content</label>
-                    <button name="post" class="btn btn-success mt-3 mb-3">Post</button>
-                </div>
-            </form>
-        </section>
+                <form method="post">
+                    <label for="inputEmail4" class="form-label mt-4">Content:</label>
+                    <div class="form-floating ">
+                        <textarea name="post_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Content</label>
+                        <button name="post" class="btn btn-success mt-3 mb-3">Post</button>
+                    </div>
+                </form>
+            </section>
+        <?php
+        }
+        ?>
         <?php
         $query = mysqli_query($conn, "SELECT *,UNIX_TIMESTAMP() - date_created AS TimeSpent from post LEFT JOIN user on user.user_id = post.user_id order by post_id DESC") or die(mysqli_error());
         while ($post_row = mysqli_fetch_array($query)) {
