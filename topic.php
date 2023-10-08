@@ -64,25 +64,31 @@
     </nav>
     <div class="container " style="margin-top: 100px; width: 1000px;">
         <div style="display: flex; justify-content: space-between;">
+        <?php
+        if (isset($_SESSION['id'])){?>
             <a href="./logout.php" style="">
-                <button type="button" class="btn btn-secondary">
-                    <?php echo $member_row['firstname'] . " " . $member_row['lastname']; ?> - Log Out
-                </button>
-            </a>
+            <button type="button" class="btn btn-secondary">
+                <?php echo $member_row['firstname'] . " " . $member_row['lastname']; ?> - Log Out
+                    </button>
+                    </a>
+                    
+                    <?php
+            }
+            ?>
             <div>
-                <button type="button" class="btn btn-success px-4">
+            <button type="button" class="btn btn-success px-4">
                     User Post: <?php echo $countpost_user; ?>
-                </button>
-                <button type="button" class="btn btn-success px-4">
-                    User Comment: <?php echo $countcomment_user; ?>
-                </button>
-                <button type="button" class="btn btn-info px-5">
-                    Post All: <?php echo $countpost; ?>
-                </button>
-                <button type="button" class="btn btn-info px-5">
-                    Comment All: <?php echo $countcomment; ?>
-                </button>
-            </div>
+            </button>
+            <button type="button" class="btn btn-success px-4">
+            User Comment: <?php echo $countcomment_user; ?>
+            </button>
+            <button type="button" class="btn btn-info px-5">
+                Post All: <?php echo $countpost; ?>
+            </button>
+            <button type="button" class="btn btn-info px-5">
+                Comment All: <?php echo $countcomment; ?>
+        </button>
+        </div>
         </div>
 
         <section class="container p-4 bg-white rounded-4 mb-3 mt-4" style="background-color: #d9d9d9;">
