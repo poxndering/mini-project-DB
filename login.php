@@ -10,13 +10,7 @@
 		if ($count > 0){
 		$_SESSION['id']=$row['user_id'];
 		$_SESSION['username'] = $username;
-		// header("location: index.php");
-		?>
-		<script>
-			alert('เข้าสู่ระบบสำเร็จ');
-			window.location='home.php';
-		</script>
-		<?php
+		header("location: home.php");
 		}else{ 
 			?>
 		<script>

@@ -64,31 +64,31 @@
     </nav>
     <div class="container " style="margin-top: 100px; width: 1000px;">
         <div style="display: flex; justify-content: space-between;">
-        <?php
-        if (isset($_SESSION['id'])){?>
-            <a href="./logout.php" style="">
-            <button type="button" class="btn btn-secondary">
-                <?php echo $member_row['firstname'] . " " . $member_row['lastname']; ?> - Log Out
+            <?php
+            if (isset($_SESSION['id'])) { ?>
+                <a href="./logout.php" style="">
+                    <button type="button" class="btn btn-secondary">
+                        <?php echo $member_row['firstname'] . " " . $member_row['lastname']; ?> - Log Out
                     </button>
-                    </a>
-                    
-                    <?php
+                </a>
+
+            <?php
             }
             ?>
             <div>
-            <button type="button" class="btn btn-success px-4">
+                <button type="button" class="btn btn-success px-4">
                     User Post: <?php echo $countpost_user; ?>
-            </button>
-            <button type="button" class="btn btn-success px-4">
-            User Comment: <?php echo $countcomment_user; ?>
-            </button>
-            <button type="button" class="btn btn-info px-5">
-                Post All: <?php echo $countpost; ?>
-            </button>
-            <button type="button" class="btn btn-info px-5">
-                Comment All: <?php echo $countcomment; ?>
-        </button>
-        </div>
+                </button>
+                <button type="button" class="btn btn-success px-4">
+                    User Comment: <?php echo $countcomment_user; ?>
+                </button>
+                <button type="button" class="btn btn-info px-5">
+                    Post All: <?php echo $countpost; ?>
+                </button>
+                <button type="button" class="btn btn-info px-5">
+                    Comment All: <?php echo $countcomment; ?>
+                </button>
+            </div>
         </div>
 
         <section class="container p-4 bg-white rounded-4 mb-3 mt-4" style="background-color: #d9d9d9;">
@@ -118,33 +118,40 @@
         ?>
             <section class="container p-4 bg-white rounded-4 mb-3">
                 <div style="float: right; display: flex;">
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-right: 5px;">
-                        Edit
-                    </button>
-                    <a style="text-decoration:none; float:right;" href="deletepost.php<?php echo '?id=' . $id; ?>">
-                        <button type="button" class="btn btn-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
+
+                    <?php
+                    if (isset($_SESSION['id'])) {
+                    ?>
+                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#myModal" style="margin-right: 5px;">
+                            Edit
                         </button>
-                    </a>
-                    <!-- Modal -->
-                    <div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg">
-                            <div class="modal-content p-4">
-                                <form method="post" action="./edit-post.php <?php echo '?id=' . $id; ?>">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
-                                    <label for="inputEmail4" class="form-label mt-4"> Edit content:</label>
-                                    <div class="form-floating">
-                                        <input type="hidden" name="update_id" id="update_id" value="">
-                                        <textarea name="edit_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea">Content</label>
-                                        <button name="edit" class="btn btn-success mt-3 mb-3">Edit</button>
-                                    </div>
-                                </form>
+                        <a style="text-decoration:none; float:right;" href="deletepost.php<?php echo '?id=' . $id; ?>">
+                            <button type="button" class="btn btn-danger">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                </svg>
+                            </button>
+                        </a>
+                        <!-- Modal -->
+                        <div class="modal fade " id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content p-4">
+                                    <form method="post" action="./edit-post.php <?php echo '?id=' . $id; ?>">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="float: right;"></button>
+                                        <label for="inputEmail4" class="form-label mt-4"> Edit content:</label>
+                                        <div class="form-floating">
+                                            <input type="hidden" name="update_id" id="update_id" value="">
+                                            <textarea name="edit_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                            <label for="floatingTextarea">Content</label>
+                                            <button name="edit" class="btn btn-success mt-3 mb-3">Edit</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php
+                    }
+                    ?>
                     <?php
                     ?>
                 </div>
@@ -183,20 +190,26 @@
                     ?>
                 </p>
                 <form method="post">
-                    <label for="inputEmail4" class="form-label mt-4">Comment:</label>
-                    <div class="form-floating">
-                        <input type="hidden" name="id" value="<?php echo $id; ?>">
-                        <textarea name="comment_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea">Comment</label>
-                        <button name="comment" type="submit" class="btn btn-success mt-3 mb-3">Comment</button>
-                        <a class="mt-3" style="text-decoration:none; float:right;" href="deletecomment.php<?php echo '?id=' . $id; ?>">
-                            <button type="button" class="btn btn-danger">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                            </button>
-                        </a>
-                    </div>
+                    <?php
+                    if (isset($_SESSION['id'])) {
+                    ?>
+                        <label for="inputEmail4" class="form-label mt-4">Comment:</label>
+                        <div class="form-floating">
+                            <input type="hidden" name="id" value="<?php echo $id; ?>">
+                            <textarea name="comment_content" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                            <label for="floatingTextarea">Comment</label>
+                            <button name="comment" type="submit" class="btn btn-success mt-3 mb-3">Comment</button>
+                            <a class="mt-3" style="text-decoration:none; float:right;" href="deletecomment.php<?php echo '?id=' . $id; ?>">
+                                <button type="button" class="btn btn-danger">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </a>
+                        </div>
+                    <?php
+                    }
+                    ?>
                     <div class="dropdown">
                         <?php
                         include "./components/view_comment.php";
