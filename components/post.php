@@ -7,7 +7,6 @@ if (!isset($_SESSION['id'])) {
         $post_content  = $_POST['post_content'];
         mysqli_query($conn, "insert into post (content,date_created,user_id) values ('$post_content','" . strtotime(date("Y-m-d h:i:sa")) . "','$user_id') ") or die(mysqli_error());
         print_r($_FILES['image']);
-        echo "5555";
         header('location:topic.php');
     }
 }

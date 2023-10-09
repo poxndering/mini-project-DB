@@ -40,7 +40,6 @@ if (isset($_POST['login'])) {
         // Verify the hashed password
         if (password_verify($password, $row["password"])) {
             // Successful login, redirect the user to a welcome page
-			echo "555";
             header("Location: home.php");
             exit();
         } else {

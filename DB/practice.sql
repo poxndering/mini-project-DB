@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2023 at 03:45 PM
+-- Generation Time: Oct 09, 2023 at 04:53 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -45,10 +45,15 @@ CREATE TABLE `post` (
   `post_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `content` varchar(500) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
-  `date_created` varchar(500) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
-  `image` varchar(255) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL
+  `date_created` varchar(500) CHARACTER SET utf8 COLLATE utf8_croatian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`post_id`, `user_id`, `content`, `date_created`) VALUES
+(99, 12, 'post test 1', '1696819885');
 
 -- --------------------------------------------------------
 
@@ -102,7 +107,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `user`
