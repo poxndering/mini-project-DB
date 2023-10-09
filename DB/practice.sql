@@ -74,14 +74,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `firstname`, `lastname`) VALUES
-(1, 'a', '123', 'tester', '1'),
-(3, 'b', '123', 'Tester', 'B'),
-(4, 'phum', '123', 'phum', 'kitti'),
-(5, 'beam', '123', 'beam', 'peerawat'),
-(6, 'J', '123', 'Phanuphan', 'J'),
-(8, 'c', '1234', 'John', 'demo'),
-(9, 'd', '1234', 'beam', 'demo'),
-(12, 'e', '123', 'peter', 'demo');
+();
 
 --
 -- Indexes for dumped tables
