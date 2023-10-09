@@ -74,7 +74,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `firstname`, `lastname`) VALUES
-();
+(1, 'a', '123', 'tester', 'A'),
+(2, 'b', '123', 'Tester', 'B');
 
 --
 -- Indexes for dumped tables
