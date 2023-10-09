@@ -20,35 +20,3 @@
 		<?php
 		}	
 		?>
-<!-- <?php
-
-
-if (isset($_POST['login'])) {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-
-    // Hash the entered password for comparison with the stored hash
-    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-    // Query the database to fetch user information
-    $sql = "SELECT * FROM user WHERE username = '$username'";
-    $result = mysqli_query($conn, $sql);
-
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-
-        // Verify the hashed password
-        if (password_verify($password, $row["password"])) {
-            // Successful login, redirect the user to a welcome page
-            header("Location: home.php");
-            exit();
-        } else {
-            // Incorrect password
-            echo "Incorrect password.";
-        }
-    } else {
-        // User not found
-        echo "User not found.";
-    }
-}
-?> -->
